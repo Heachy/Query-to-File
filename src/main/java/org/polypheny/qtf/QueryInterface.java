@@ -53,6 +53,7 @@ public abstract class QueryInterface {
         //unmount in case it is still mounted
         //myFuse.umount();
         myFuse.mount( root.toPath(), false, false );
+
         try {
             this.socketClient = new SocketClient( new URI( QTFConfig.getWebSocketUrl() ), myFuse, this );
             log.info( "Connecting to websocket..." );

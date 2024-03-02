@@ -77,7 +77,7 @@ public class QTFConfig {
 
     public static File getMountPoint() {
         if ( Platform.getNativePlatform().getOS() == OS.WINDOWS ) {
-            return new File( "J://" );
+            return new File( "F:\\" );
         } else {
             return new File( System.getProperty( "user.home" ), ".polypheny" + File.separator + "qtf" );
         }

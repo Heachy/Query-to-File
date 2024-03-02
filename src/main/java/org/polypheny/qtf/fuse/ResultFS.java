@@ -303,11 +303,22 @@ public class ResultFS extends FuseStubFS {
     }
 
 
+    /**
+     * 结果路径类
+     */
     public static abstract class ResultPath {
 
+
+        /**
+         * 结果名称
+         */
         @Getter
         @Setter
         protected String name;
+
+        /**
+         * 父目录
+         */
         @Getter
         protected ResultDirectory parent;
 
@@ -320,13 +331,17 @@ public class ResultFS extends FuseStubFS {
             this.parent = parent;
         }
 
+
+        /**
+         * 递归获得路径
+         */
         public String getPath() {
             String path = name;
             if ( parent != null ) {
                 path = parent.getPath() + "/" + path;
                 return path;
             } else {
-                return "";
+                    return "";
             }
         }
 
@@ -382,7 +397,9 @@ public class ResultFS extends FuseStubFS {
     private Result result;
 
     public ResultFS() {
-        this.rootDirectory = new ResultDirectory( "root" );
+        this.rootDirectory = new ResultDirectory( "" );
+        rootDirectory.add( ResultFile.ofData( "Sample file.txt","Hello there, feel free to look around.\n",rootDirectory ) );
+        rootDirectory.add( new ResultDirectory( "Sample directory" ) );
     }
 
     public void add( ResultPath path ) {
