@@ -1,4 +1,4 @@
-# Query-to-File
+# Query-to-File-Maven
 
 _Polypheny Query-to-File_ lets you materialize the result of an arbitrary query as a file system (set of files in a folder). All files that are materialized in the mounted folder are kept in memory. Multimedia files are initially empty. As you open a multimedia file, the content will be fetched from Polypheny-DB, loaded into memory and then returned. This can lead to waiting times, and your file explorer might not react during this moment.
 
